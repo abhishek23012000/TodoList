@@ -1,0 +1,120 @@
+
+
+<header>
+  <!-- Intro settings -->
+  <style>
+    /* Default height for small devices */
+    #intro-example {
+      height: 100vh;
+    }
+
+    /* Height for devices larger than 992px */
+    @media (min-width: 992px) {
+      #intro-example {
+        height: 100vh;
+      }
+    }
+  </style>
+
+  <!-- Navbar -->
+ 
+  <!-- Navbar -->
+
+  <!-- Background image -->
+  <div
+    id="intro-example"
+    class="p-5 text-center bg-image"
+    style="background-image: url(https://source.unsplash.com/1600x900/?nature,water);"
+  >
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);">
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="text-white">
+          <h1 style="text-decoration:underline;" class="mb-3 ">TodoList</h1>
+          <section >
+
+
+            <form  action="/add-task" method="POST">
+          
+              <label for="des" style="color: aqua;font-weight: bolder; font-size: large ;margin-bottom: 20px; padding: 7px; margin-left: -100px; "> Description</label>
+              
+              <input type="text" name="description" placeholder="what do you need to do?" style="width: 50%;  text-align: center;" required>
+          <br>
+              <label for="category" style="color:aqua; font-weight: bolder; font-size: large; margin-right: 15px;  ;">Category</label>
+              
+          
+              <select style="padding: 3px; ; margin-bottom: 20px;" id="category" name="category" >
+                <option value="personal">PERSONAL</option>
+                <option value="work">WORK</option>
+                <option value="school">COLLEGE</option>
+                <option value="cleaning">HOME</option>
+              </select>
+              <input type="date" name="date" required>
+              <button type="submit" class="btn btn-outline-success px-4 ml-2">Add</button>
+            </form>
+          
+          
+          </section>
+
+          <section>
+
+            <form action="/delete-task" method="GET">
+              <table class="table table-hover bg-primary ">
+                <thead>
+                  <tr>
+                   
+                    <th scope="col">Description</th>
+                    <th scope="col">Category</th>
+                    <th scope="col"> Due-Date</th>
+                  </tr>
+                </thead>
+              </table>
+             
+          
+          
+              <% for(let i of task) { %>
+                    
+                 <div style="display:block;  width: fit-content;" >
+                  <input type="checkbox" name="<%= i._id %>">
+                 </div>
+                 
+                  
+                 
+                   
+                 <table class="table table-hover table-dark">
+                  <tbody>
+                    <tr>
+                     
+                      <td> <%= i.description %></td>
+                      <td><%= i.category %></td>
+                      <td><%= i.date.getDate(); %>/<%= i.date.getMonth()+1; %>/<%= i.date.getFullYear(); %></td>
+                      
+                    </tr>
+                   
+                  </tbody>
+                </table>
+       
+                 
+          
+                <% } %>
+                <button type="submit" class="btn btn-outline-danger px-4 ml-2 mb-3">Delete</button>
+          
+            </form>
+          </section>
+      
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Background image -->
+</header>
+
+
+
+
+
+
+
+
+<!-- <!-- section for delete>-- -->
+
+
